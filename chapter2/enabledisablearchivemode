@@ -17,3 +17,9 @@ alter database open
 check it with :
 select log_mode from v$database
 
+
+
+extra information
+su - oracle
+sqlplus / as sysdba
+archive log list;
