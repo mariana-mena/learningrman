@@ -1,0 +1,19 @@
+#enable archivemode
+
+shutdown immediate
+startup mount
+alter database archivelog
+alter database open
+check it with:
+select log_mode from v$database
+
+
+#disble archivelogmode
+
+shutdown immediate
+startup mount;
+alter database noarchivelog
+alter database open
+check it with :
+select log_mode from v$database
+
