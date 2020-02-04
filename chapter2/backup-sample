@@ -1,0 +1,61 @@
+#backup database
+
+
+su - oracle
+rman target /
+backup database
+list backup
+
+you can see the location of your datafile with:
+su - oracle
+rman target /
+report schema
+
+simulatingfailure:
+
+#rename one of your datafile
+
+
+1.have full and good backup
+check it 
+backup database
+
+2.see your backup with:
+su - oracle
+rman target /
+list backup
+
+3.see the location of your datafile that you want to rename it with:
+
+su - oracle
+rman target /
+report schema
+
+
+4. first you nee to shutdown your db:
+su - oracle
+rman target /
+shutdown immediate
+exit
+
+5.cd to location that you got from "report schema" in rman
+then rename it:
+mv /u01/dbfile/o12c/users01.dbf /u01/dbfile/o12c/users01.old
+6.rman target /
+startup:
+ORA-01157: cannot identify/lock data file 4 - see DBWR trace file
+ORA-01110: data file 4: '/u01/dbfile/o12c/users01.dbf'
+
+solution:
+rman target /
+alter database mount;
+restore database;
+recover database;
+alter database open;
+
+
+
+
+
+
+
