@@ -1,0 +1,10 @@
+su - oracle
+rman target /
+
+
+##you can stop and start database in rman command like:
+RMAN> shutdown immediate;
+RMAN> startup;
+
+in 12c you can run sql directly like:
+RMAN> select * from gv$session
