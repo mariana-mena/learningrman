@@ -1,0 +1,10 @@
+
+#stop
+su - oracle
+sqlplus / as sysdba
+shutdown immediate
+
+#start
+su - oracle
+sqlplus / as sysdba
+startup
