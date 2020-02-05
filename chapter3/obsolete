@@ -1,0 +1,6 @@
+su - oracle
+rman target /
+report obsolete
+delete obsolete
+
+delete noprompt obsolete
