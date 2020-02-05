@@ -1,0 +1,8 @@
+alter system set alter system set db_recovery_file_dest_size = 10G;
+alter system set alter system set db_recovery_file_dest_size = 2G;
+
+
+you can check it with :
+select * from v$recovery_file_dest;
+
+
